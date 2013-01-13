@@ -11,13 +11,11 @@ k = 0
 limit = 24
 esti= numpy.zeros(limit)
 errorf = numpy.zeros(limit)
-errorg = numpy.zeros(limit)
 
 
 while k <= (limit-1):
     esti[k]= f1 / f0
     errorf[k] = abs(esti[k] - phi)
-    errorg[k] = esti[k]-phi
     print "%i, %i, %i, %s, %s" % (k, f0, f1, esti[k], errorf[k])
     f2 = f0 + f1
     f0 = f1
@@ -26,8 +24,8 @@ while k <= (limit-1):
     
 plot(esti, 'bo', label = 'Estimate of Phi')
 plot(esti, ':k')
+xlim(0,25)
 ylim(.8, 2.1)
 xlabel('Term in Fibonacci Sequence')
 title('Estimate of Phi using Fibonnaci Sequence')
 show()
-
